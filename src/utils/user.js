@@ -1,15 +1,15 @@
 import axios from "axios";
 
 export const addUser = (payload) => {
-    return axios.post("http://localhost:3001/signup", payload);
+    return axios.post("https://wendor-dada.onrender.com/signup", payload);
   };
 
 
 export const sendOtp = (payload) => {
-    return axios.post("http://localhost:3001/send-otp", payload);
+    return axios.post("https://wendor-dada.onrender.com/send-otp", payload);
   };
 
 
   export const verifyOtp = (payload) => {
-    return axios.post("http://localhost:3001/verify-otp", payload);
+    return axios.post("https://wendor-dada.onrender.com/verify-otp", payload);
   };

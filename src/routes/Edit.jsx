@@ -46,7 +46,7 @@ import { getProducts, updateProducts } from "../utils/products";
 
   
     const getData = () => {
-       return axios.get("http://localhost:3001/products").then((r) => setData(r.data));
+       return axios.get("https://wendor-dada.onrender.com/products").then((r) => setData(r.data));
       };
   
     const handleSubmit = () => {

@@ -20,7 +20,7 @@ useEffect(() => {
 }, [data]);
 
 const getData = () => {
-  axios.get("http://localhost:3001/products").then((r) => setData(r.data));
+  axios.get("https://wendor-dada.onrender.com/products").then((r) => setData(r.data));
 };
 
 

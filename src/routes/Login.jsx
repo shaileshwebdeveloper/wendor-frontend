@@ -92,7 +92,7 @@ export const Login = () => {
             p={8}
           >
             <Stack spacing={4}>
-              <FormControl id="mobile">
+              <FormControl id="mobile" isRequired>
                 <FormLabel>CONTACT</FormLabel>
                 <Input
                   type="number"
@@ -104,6 +104,7 @@ export const Login = () => {
                 />
                 <Button
                   bg={"blue.400"}
+                  mt="20px"
                   color={"white"}
                   _hover={{
                     bg: "blue.500",
@@ -114,7 +115,7 @@ export const Login = () => {
                 </Button>
               </FormControl>
 
-              <FormControl id="password">
+              <FormControl id="password" isRequired>
                 <FormLabel>OTP</FormLabel>
                 <Input
                   type="number"

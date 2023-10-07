@@ -70,14 +70,14 @@ export const Signup = () => {
           </Text>
         </Stack>
         <form onSubmit={handleSubmit}>
-          <Box
+          <Box 
             rounded={"lg"}
             bg={useColorModeValue("white", "gray.700")}
             boxShadow={"lg"}
-            p={8}
+            p={20}
           >
             <Stack spacing={4}>
-              <FormControl id="firstname">
+              <FormControl id="firstname" isRequired>
                 <FormLabel>FIRST NAME</FormLabel>
                 <Input
                   type="text"
@@ -89,7 +89,7 @@ export const Signup = () => {
                 />
               </FormControl>
 
-              <FormControl id="email">
+              <FormControl id="email" isRequired>
                 <FormLabel>EMAIL</FormLabel>
                 <Input
                   type="email"
@@ -101,7 +101,7 @@ export const Signup = () => {
                 />
               </FormControl>
 
-              <FormControl id="password">
+              <FormControl id="password" isRequired>
                 <FormLabel>PASSWORD</FormLabel>
                 <Input
                   type="password"
@@ -113,7 +113,7 @@ export const Signup = () => {
                 />
               </FormControl>
 
-              <FormControl id="mobile">
+              <FormControl id="mobile" isRequired>
                 <FormLabel>CONTACT</FormLabel>
                 <InputGroup>
                   <InputLeftAddon children="+91" />

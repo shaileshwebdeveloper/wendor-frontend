@@ -106,9 +106,9 @@ export const AddProduct = () => {
             <Box>
               <Input
                 value={payload.title}
+                placeholder="Please Add the Title"
                 name="title"
                 onChange={handleChange}
-                placeholder="Add Title"
                 mb={"1rem"}
                 border="1px solid teal"
                 required
@@ -121,7 +121,7 @@ export const AddProduct = () => {
                 value={payload.image}
                 name="image"
                 onChange={handleChange}
-                placeholder="Add Image Url"
+                placeholder="Please Add Image Url"
                 mb={"1rem"}
                 border="1px solid teal"
               />
@@ -134,7 +134,7 @@ export const AddProduct = () => {
                 value={payload.price}
                 name="price"
                 onChange={handleChange}
-                placeholder="Add Price"
+                placeholder="Please Add Price"
                 mb={"1rem"}
                 border="1px solid teal"
               />

@@ -10,12 +10,18 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  useToast,
+    Alert,
+    AlertIcon,
+    AlertTitle,
+    AlertDescription,
+
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useContext, useState } from "react";
 
 import { sendOtp, verifyOtp } from "../utils/user";
-import { Navigate, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 export const Login = () => {
@@ -29,6 +35,8 @@ export const Login = () => {
   const [users, setUsers] = useState([]);
 
   const auth = useContext(AuthContext);
+
+  const { toast } = useToast();
 
   const navigate = useNavigate();
 
@@ -58,10 +66,19 @@ export const Login = () => {
     setUsers([...users, formstate]);
     setFormState(initState);
 
-    console.log("formstate", formstate);
+    // console.log("formstate", formstate);
 
     verifyOtp(formstate)
-      .then((r) => console.log(r.data))
+      .then((r) => {
+       if(r.status === 200){
+        alert(r.data.msg);
+       auth.handleLogin(r.data.token);
+       navigate("/")
+       }else if(r.status ===204){
+        alert("Otp Incorrect");
+       }
+      }
+      ) 
       .catch((error) => {
         alert("Something went wrong");
         console.log("error", error);

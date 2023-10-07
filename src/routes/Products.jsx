@@ -8,7 +8,6 @@ import { AddProduct } from "./AddProduct";
 
 export const Products = () => {
 
-  const [products, setProducts] = useState([]);
 
   const { state } = useContext(AuthContext);
 
@@ -58,7 +57,7 @@ export const Products = () => {
             <br />
             <Text fontSize='sm' padding={"2px"} color="#bba5e9" bgColor={"#e9deff"} w="170px" p="1%">Top Discount of the Sale</Text>
             <br />
-            {/* {state.isAuth ? ( */}
+            {state.isAuth ? (
               <Flex justifyContent={"space-around"}>
                 <Button
                   onClick={() => handleDelete(item._id)}
@@ -69,7 +68,7 @@ export const Products = () => {
                 </Button>
                 <Edit {...item} setData={setData} />
               </Flex>
-            {/* ) : null} */}
+             ) : null} 
           </Box>
         ))}
       </SimpleGrid>

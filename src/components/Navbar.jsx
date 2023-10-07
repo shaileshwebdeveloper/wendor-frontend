@@ -53,10 +53,11 @@ export const Navbar = () => {
       to: "/login",
       title: state.isAuth ? "LOGOUT" : "LOGIN",
     },
+    state.isAuth ? "" :
     {
       to: "/signup",
       title: "SIGNUP",
-    },
+    } ,
   ];
 
   return (

@@ -40,7 +40,14 @@ export const Navbar = () => {
       to: "/",
       title: "HOME",
     },
-
+    {
+      to: "/about",
+      title: "ABOUT",
+    },
+    {
+      to: "/contact",
+      title: "CONTACT",
+    },
     {
       to: "/login",
       title: state.isAuth ? "LOGOUT" : "LOGIN",

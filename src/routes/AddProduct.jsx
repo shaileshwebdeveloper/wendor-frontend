@@ -10,6 +10,7 @@ import {
   Button,
   Input,
   Box,
+  useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { addProducts } from "../utils/products";
@@ -24,6 +25,7 @@ export const AddProduct = () => {
 
       const [data, setData] = useState([]);
 
+      const toast = useToast()
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -50,6 +52,18 @@ export const AddProduct = () => {
 
     console.log("payload", payload)
 
+    if(payload.image === "" && payload.price === ""){
+      toast({
+        title: 'Error',
+        description: "Please fill all field",
+        status: 'success',
+        duration: 1000,
+        isClosable: true,
+        colorScheme : "red"
+      })
+    }
+    else{
+
     if(payload.image ===  ""){
        payload.image = "https://cdn.pixabay.com/photo/2017/09/10/18/25/question-2736480_1280.jpg"
     }
@@ -59,13 +73,23 @@ export const AddProduct = () => {
     //   console.log(products, "products")
 
     addProducts(payload).then((r) => getData());
+
+    toast({
+      title: 'Product Added',
+      description: "New product added",
+      status: 'success',
+      duration: 1000,
+      isClosable: true,
+    })
+  }
   };
 
 //   console.log("data add products", products)
 
   return (
     <>
-      <Button onClick={onOpen} colorScheme="teal" variant="outline">
+
+      <Button onClick={onOpen} colorScheme="teal" variant="outline" mb="20px">
         ADD NEW PRODUCT
       </Button>
 
@@ -87,6 +111,7 @@ export const AddProduct = () => {
                 placeholder="Add Title"
                 mb={"1rem"}
                 border="1px solid teal"
+                required
               />
             </Box>
 
@@ -105,6 +130,7 @@ export const AddProduct = () => {
             <Box>
               <Input
                 type="Number"
+                required
                 value={payload.price}
                 name="price"
                 onChange={handleChange}

@@ -51,8 +51,8 @@ export const Edit = ({ _id, title, image, price }) => {
 
   return (
     <>
-      <Button onClick={onOpen} colorScheme="teal" variant="outline">
-        Edit
+      <Button onClick={onOpen} colorScheme="teal" variant="outline"  size="lg">
+        EDIT
       </Button>
 
       <Modal

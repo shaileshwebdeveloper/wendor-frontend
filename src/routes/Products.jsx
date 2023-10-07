@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { deleteProducts, getProducts } from "../utils/products";
-import { Box, Button, Img, SimpleGrid } from "@chakra-ui/react";
+import { Box, Button, Flex, Img, SimpleGrid, Text } from "@chakra-ui/react";
 import { Edit } from "./Edit";
 import { AuthContext } from "../context/AuthContext";
 import { AddProduct } from "./AddProduct";
 
 export const Products = () => {
+
   const [products, setProducts] = useState([]);
 
   const { state } = useContext(AuthContext);
@@ -34,30 +35,40 @@ export const Products = () => {
         <Box>
           <AddProduct />
         </Box>
-      <SimpleGrid columns={4} spacing={10} mt="20px">
+      <SimpleGrid columns={3} spacing={10} mt="20px" width={"80%"} m="auto">
         {data?.map((item) => (
           <Box
             key={item._id}
             style={{
-              border: "1px solid black",
-              width: "200px",
+              // border: "1px solid black",
+              borderRadius : "10%",
+              padding : "10%",
+              width: "400px",
               margin: "auto",
+              boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+              textAlign : "left"
             }}
           >
-            <h1>{item.title}</h1>
-            <Img src={item.image} alt="" style={{ width: "200px" }} />
-            <p>{item.price}</p>
+            <Img src={item.image} alt="" style={{ width: "400px", height : "200px"}} />
+            <Text as='b' fontSize='md'>{item.title}</Text>
+             <br/>
+            <Text as='b' fontSize='md'>{item.price} <span style={{color:"teal"}}>  25% off</span></Text>
+            <br/>
+            <Text as='b' fontSize='sm' color={"purple"} align={"left"}>Big Saving Deal</Text>
+            <br />
+            <Text fontSize='sm' padding={"2px"} color="#bba5e9" bgColor={"#e9deff"} w="170px" p="1%">Top Discount of the Sale</Text>
+            <br />
             {/* {state.isAuth ? ( */}
-              <>
+              <Flex justifyContent={"space-around"}>
                 <Button
                   onClick={() => handleDelete(item._id)}
-                  colorScheme="teal"
-                  size="md"
+                  colorScheme="red" variant="outline"
+                  size="lg"
                 >
-                  Remove
+                  REMOVE
                 </Button>
                 <Edit {...item} setData={setData} />
-              </>
+              </Flex>
             {/* ) : null} */}
           </Box>
         ))}

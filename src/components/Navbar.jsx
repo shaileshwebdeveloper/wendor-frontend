@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { Box } from "@chakra-ui/react";
 
 const links = [
   {
@@ -19,7 +20,7 @@ const links = [
 
 // NavLinks
 const baseStyle = {
-  color: "black",
+  color: "white",
   textDecoration: "none",
 };
 
@@ -59,7 +60,8 @@ export const Navbar = () => {
   ];
 
   return (
-    <div style={{ display: "flex", gap: "2rem", justifyContent: "center" }}>
+    <Box style={{ display: "flex", gap: "2rem", justifyContent: "center", backgroundColor : "teal",
+    padding  : "20px"}}>
       {links.map((item) => (
         // activeStyle, or activeClass
         <NavLink
@@ -71,6 +73,6 @@ export const Navbar = () => {
           {item.title}
         </NavLink>
       ))}
-    </div>
+    </Box>
   );
 };

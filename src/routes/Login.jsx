@@ -131,8 +131,8 @@ export const Login = () => {
                   align={"start"}
                   justify={"space-between"}
                 >
-                  <Checkbox>Remember me</Checkbox>
-                  <Text color={"blue.400"}>Forgot password?</Text>
+                  {/* <Checkbox>Remember me</Checkbox> */}
+                  <Text color={"blue.400"} onClick={() => navigate("/signup")}>Forgot password?</Text>
                 </Stack>
                 <Input
                   type="submit"

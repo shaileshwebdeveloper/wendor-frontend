@@ -134,8 +134,8 @@ export const Signup = () => {
                   align={"start"}
                   justify={"space-between"}
                 >
-                  <Checkbox>Remember me</Checkbox>
-                  <Text color={"blue.400"}>Forgot password?</Text>
+                  {/* <Checkbox>Remember me</Checkbox>
+                  <Text color={"blue.400"}>Forgot password?</Text> */}
                 </Stack>
                 <Input
                   type="submit"

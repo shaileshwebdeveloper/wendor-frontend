@@ -102,11 +102,6 @@ export const Footer = () => {
             </Box>
           </Stack>
 
-          <Stack align={'flex-start'}>
-            <ListHeader>Install App</ListHeader>
-            {/* <AppStoreBadge />
-            <PlayStoreBadge /> */}
-          </Stack>
         </SimpleGrid>
       </Container>
 

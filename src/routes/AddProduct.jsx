@@ -1,3 +1,4 @@
+import React, { useRef, useState } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -10,25 +11,26 @@ import {
   Input,
   Box,
 } from "@chakra-ui/react";
-import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { getProducts, updateProducts } from "../utils/products";
+import { addProducts } from "../utils/products";
 
-export const Edit = ({ _id, title, image, price }) => {
-  
-  const [data, setData] = useState([]);
+export const AddProduct = () => {
+
+    const initState = {
+        title: "",
+        image : "",
+        price : "",
+      };
+      
+      const [data, setData] = useState([]);
+
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const initialRef = useRef(null);
   const finalRef = useRef(null);
 
-  const [payload, setPayload] = useState({
-    id: _id,
-    title: title,
-    image: image,
-    price: price,
-  });
+  const [payload, setPayload] = useState(initState);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,14 +47,21 @@ export const Edit = ({ _id, title, image, price }) => {
   };
 
   const handleSubmit = () => {
-    console.log("EDIT payload", payload)
-    updateProducts(_id, payload).then((r) => getData());
+
+    console.log("payload", payload)
+
+    setPayload(initState);
+    //   console.log(products, "products")
+
+    addProducts(payload).then((r) => getData());
   };
+
+//   console.log("data add products", products)
 
   return (
     <>
       <Button onClick={onOpen} colorScheme="teal" variant="outline">
-        Edit
+        ADD NEW PRODUCT
       </Button>
 
       <Modal
@@ -70,7 +79,7 @@ export const Edit = ({ _id, title, image, price }) => {
                 value={payload.title}
                 name="title"
                 onChange={handleChange}
-                placeholder="Update Title"
+                placeholder="Add Title"
                 mb={"1rem"}
                 border="1px solid teal"
               />
@@ -82,7 +91,7 @@ export const Edit = ({ _id, title, image, price }) => {
                 value={payload.image}
                 name="image"
                 onChange={handleChange}
-                placeholder="Update Image Url"
+                placeholder="Add Image Url"
                 mb={"1rem"}
                 border="1px solid teal"
               />
@@ -94,7 +103,7 @@ export const Edit = ({ _id, title, image, price }) => {
                 value={payload.price}
                 name="price"
                 onChange={handleChange}
-                placeholder="Update Price"
+                placeholder="Add Price"
                 mb={"1rem"}
                 border="1px solid teal"
               />

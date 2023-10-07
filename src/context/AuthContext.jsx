@@ -4,22 +4,22 @@ export const AuthContext = React.createContext();
 
 function AuthContextProvider({ children }) {
   const [state, setState] = useState({
-    isAuth: true,
-    token: null
+    isAuth: false,
+    token: null,
   });
 
   function handleLogin(token) {
     setState({
       ...state,
       isAuth: true,
-      token: token
+      token: token,
     });
   }
   function handleLogout() {
     setState({
       ...state,
       isAuth: false,
-      token: null
+      token: null,
     });
   }
 

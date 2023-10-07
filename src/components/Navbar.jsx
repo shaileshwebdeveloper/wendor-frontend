@@ -29,30 +29,27 @@ const activeStyle = {
 };
 
 export const Navbar = () => {
-
-
   const auth = useContext(AuthContext);
 
   const { state } = useContext(AuthContext);
+
+  console.log(state.isAuth);
 
   const links = [
     {
       to: "/",
       title: "HOME",
     },
-  
+
     {
       to: "/login",
-      title:  state.isAuth ? "LOGOUT" :  "LOGIN",
+      title: state.isAuth ? "LOGOUT" : "LOGIN",
     },
     {
       to: "/signup",
       title: "SIGNUP",
     },
   ];
-
-
-
 
   return (
     <div style={{ display: "flex", gap: "2rem", justifyContent: "center" }}>
@@ -62,9 +59,9 @@ export const Navbar = () => {
           style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           to={item.to}
           key={item.to}
-          onClick={() =>  item.title === "LOGOUT" ? auth.handleLogout() : ""}
+          onClick={() => (item.title === "LOGOUT" ? auth.handleLogout() : "")}
         >
-          {item.title }
+          {item.title}
         </NavLink>
       ))}
     </div>

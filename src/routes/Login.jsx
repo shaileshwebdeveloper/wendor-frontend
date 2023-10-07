@@ -20,19 +20,17 @@ import { AuthContext } from "../context/AuthContext";
 
 export const Login = () => {
   const initState = {
-       mobile : "",
-       enteredOTP : ""
+    mobile: "",
+    enteredOTP: "",
   };
-
 
   const [formstate, setFormState] = useState(initState);
 
-  
   const [users, setUsers] = useState([]);
-  
- const auth = useContext(AuthContext);
 
- const navigate = useNavigate();
+  const auth = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name: key, value } = e.target;
@@ -43,38 +41,34 @@ export const Login = () => {
     });
   };
 
+
+  const handleSendOtp = () => {
+    const payload = { mobile: formstate.mobile };
+
+    sendOtp(payload)
+      .then((r) => alert(r.data.msg))
+      .catch((e) => console.log(e));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    formstate.mobile = "+91" + formstate.mobile
-    
+    formstate.mobile = "+91" + formstate.mobile;
+
     setUsers([...users, formstate]);
     setFormState(initState);
-   
-    console.log("formstate", formstate)
+
+    console.log("formstate", formstate);
 
     verifyOtp(formstate)
-    .then(r => {
-      auth.handleLogin(r.data.token);
-      navigate("/");
-    })
-    .catch(error =>   console.log("error", error))
-
+      .then((r) => console.log(r.data))
+      .catch((error) => {
+        alert("Something went wrong");
+        console.log("error", error);
+      });
   };
 
 
-
-
-
-  const handleSendOtp = () => {
-    
-    const payload = {mobile : formstate.mobile} 
-    
-     sendOtp(payload)
-    .then(r => alert(r.data.msg))
-    .catch(e =>   console.log(e))
-
-  }
 
   return (
     <Flex
@@ -105,7 +99,7 @@ export const Login = () => {
                   required
                   placeholder="Enter Your Mobile Number"
                   onChange={handleChange}
-                  name = "mobile"
+                  name="mobile"
                   value={formstate.mobile}
                 />
                 <Button
@@ -127,7 +121,7 @@ export const Login = () => {
                   required
                   placeholder="Verify Your Otp"
                   onChange={handleChange}
-                  name = "enteredOTP"
+                  name="enteredOTP"
                   value={formstate.enteredOTP}
                 />
               </FormControl>
@@ -140,14 +134,14 @@ export const Login = () => {
                   <Checkbox>Remember me</Checkbox>
                   <Text color={"blue.400"}>Forgot password?</Text>
                 </Stack>
-                <Input type="submit"
+                <Input
+                  type="submit"
                   bg={"blue.400"}
                   color={"white"}
                   _hover={{
                     bg: "blue.500",
                   }}
                 />
-                  
               </Stack>
             </Stack>
           </Box>

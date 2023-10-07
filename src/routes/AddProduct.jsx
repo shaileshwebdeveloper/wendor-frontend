@@ -50,6 +50,11 @@ export const AddProduct = () => {
 
     console.log("payload", payload)
 
+    if(payload.image ===  ""){
+       payload.image = "https://cdn.pixabay.com/photo/2017/09/10/18/25/question-2736480_1280.jpg"
+    }
+
+
     setPayload(initState);
     //   console.log(products, "products")
 

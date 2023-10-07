@@ -19,7 +19,7 @@ export const Products = () => {
 
   const getData = () => {
     axios
-      .get("http://localhost:3001/products")
+      .get("https://wendor-dada.onrender.com/products")
       .then((r) => setData(r.data));
   };
 

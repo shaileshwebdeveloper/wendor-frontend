@@ -21,7 +21,7 @@ export const AddProduct = () => {
         image : "",
         price : "",
       };
-      
+
       const [data, setData] = useState([]);
 
 
@@ -42,7 +42,7 @@ export const AddProduct = () => {
 
   const getData = () => {
     return axios
-      .get("http://localhost:3001/products")
+      .get("https://wendor-dada.onrender.com/products")
       .then((r) => setData(r.data));
   };
 

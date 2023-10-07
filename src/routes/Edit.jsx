@@ -40,7 +40,7 @@ export const Edit = ({ _id, title, image, price }) => {
 
   const getData = () => {
     return axios
-      .get("http://localhost:3001/products")
+      .get("https://wendor-dada.onrender.com/products")
       .then((r) => setData(r.data));
   };
 

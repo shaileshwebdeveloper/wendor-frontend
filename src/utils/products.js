@@ -5,12 +5,12 @@ export const getProducts = () => {
 };
 
 export const addProducts = (payload) => {
-  return axios.post("https://wendor-dada.onrender.com/create", payload,{
+  return axios.post("https://wendor-dada.onrender.com/create", payload, {
     headers: {
-      'Content-Type': 'application/json',
-  }
-})
-}
+      "Content-Type": "application/json",
+    },
+  });
+};
 
 export const updateProducts = (id, payload) => {
   return axios.patch(

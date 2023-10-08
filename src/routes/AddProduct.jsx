@@ -16,16 +16,15 @@ import axios from "axios";
 import { addProducts } from "../utils/products";
 
 export const AddProduct = () => {
+  const initState = {
+    title: "",
+    image: "",
+    price: "",
+  };
 
-    const initState = {
-        title: "",
-        image : "",
-        price : "",
-      };
+  const [data, setData] = useState([]);
 
-      const [data, setData] = useState([]);
-
-      const toast = useToast()
+  const toast = useToast();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -49,46 +48,42 @@ export const AddProduct = () => {
   };
 
   const handleSubmit = () => {
+    console.log("payload", payload);
 
-    console.log("payload", payload)
-
-    if(payload.image === "" && payload.price === ""){
+    if (payload.image === "" && payload.price === "") {
       toast({
-        title: 'Error',
+        title: "Error",
         description: "Please fill all field",
-        status: 'success',
+        status: "success",
         duration: 1000,
         isClosable: true,
-        colorScheme : "red"
-      })
+        colorScheme: "red",
+      });
+    } else {
+      if (payload.image === "") {
+        payload.image =
+          "https://cdn.pixabay.com/photo/2017/09/10/18/25/question-2736480_1280.jpg";
+      }
+
+      setPayload(initState);
+      //   console.log(products, "products")
+
+      addProducts(payload).then((r) => getData());
+
+      toast({
+        title: "Product Added",
+        description: "New product added",
+        status: "success",
+        duration: 1000,
+        isClosable: true,
+      });
     }
-    else{
-
-    if(payload.image ===  ""){
-       payload.image = "https://cdn.pixabay.com/photo/2017/09/10/18/25/question-2736480_1280.jpg"
-    }
-
-
-    setPayload(initState);
-    //   console.log(products, "products")
-
-    addProducts(payload).then((r) => getData());
-
-    toast({
-      title: 'Product Added',
-      description: "New product added",
-      status: 'success',
-      duration: 1000,
-      isClosable: true,
-    })
-  }
   };
 
-//   console.log("data add products", products)
+  //   console.log("data add products", products)
 
   return (
     <>
-
       <Button onClick={onOpen} colorScheme="teal" variant="outline" mb="20px">
         ADD NEW PRODUCT
       </Button>

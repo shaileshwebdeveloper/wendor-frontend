@@ -53,16 +53,24 @@ export const Navbar = () => {
       to: "/login",
       title: state.isAuth ? "LOGOUT" : "LOGIN",
     },
-    state.isAuth ? "" :
-    {
-      to: "/signup",
-      title: "SIGNUP",
-    } ,
+    state.isAuth
+      ? ""
+      : {
+          to: "/signup",
+          title: "SIGNUP",
+        },
   ];
 
   return (
-    <Box style={{ display: "flex", gap: "2rem", justifyContent: "center", backgroundColor : "teal",
-    padding  : "20px"}}>
+    <Box
+      style={{
+        display: "flex",
+        gap: "2rem",
+        justifyContent: "center",
+        backgroundColor: "teal",
+        padding: "20px",
+      }}
+    >
       {links.map((item) => (
         // activeStyle, or activeClass
         <NavLink

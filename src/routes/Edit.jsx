@@ -15,7 +15,6 @@ import axios from "axios";
 import { getProducts, updateProducts } from "../utils/products";
 
 export const Edit = ({ _id, title, image, price }) => {
-  
   const [data, setData] = useState([]);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -45,13 +44,13 @@ export const Edit = ({ _id, title, image, price }) => {
   };
 
   const handleSubmit = () => {
-    console.log("EDIT payload", payload)
+    console.log("EDIT payload", payload);
     updateProducts(_id, payload).then((r) => getData());
   };
 
   return (
     <>
-      <Button onClick={onOpen} colorScheme="teal" variant="outline"  size="lg">
+      <Button onClick={onOpen} colorScheme="teal" variant="outline" size="lg">
         EDIT
       </Button>
 

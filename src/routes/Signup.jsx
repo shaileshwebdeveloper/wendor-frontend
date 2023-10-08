@@ -47,8 +47,8 @@ export const Signup = () => {
     setFormState(initState);
     addUser(formstate)
       .then((r) => {
-        console.log("Signup Data", r)
-        alert(r.data)
+        console.log("Signup Data", r);
+        alert(r.data);
       })
       .catch((e) => console.log(e));
   };
@@ -70,7 +70,7 @@ export const Signup = () => {
           </Text>
         </Stack>
         <form onSubmit={handleSubmit}>
-          <Box 
+          <Box
             rounded={"lg"}
             bg={useColorModeValue("white", "gray.700")}
             boxShadow={"lg"}

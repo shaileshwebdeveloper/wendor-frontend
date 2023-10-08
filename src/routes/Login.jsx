@@ -11,17 +11,16 @@ import {
   Text,
   useColorModeValue,
   useToast,
-    Alert,
-    AlertIcon,
-    AlertTitle,
-    AlertDescription,
-
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useContext, useState } from "react";
 
 import { sendOtp, verifyOtp } from "../utils/user";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 export const Login = () => {
@@ -49,7 +48,6 @@ export const Login = () => {
     });
   };
 
-
   const handleSendOtp = () => {
     const payload = { mobile: formstate.mobile };
 
@@ -70,22 +68,19 @@ export const Login = () => {
 
     verifyOtp(formstate)
       .then((r) => {
-       if(r.status === 200){
-        alert(r.data.msg);
-       auth.handleLogin(r.data.token);
-       navigate("/")
-       }else if(r.status ===204){
-        alert("Otp Incorrect");
-       }
-      }
-      ) 
+        if (r.status === 200) {
+          alert(r.data.msg);
+          auth.handleLogin(r.data.token);
+          navigate("/");
+        } else if (r.status === 204) {
+          alert("Otp Incorrect");
+        }
+      })
       .catch((error) => {
         alert("Something went wrong");
         console.log("error", error);
       });
   };
-
-
 
   return (
     <Flex
@@ -150,7 +145,9 @@ export const Login = () => {
                   justify={"space-between"}
                 >
                   {/* <Checkbox>Remember me</Checkbox> */}
-                  <Text color={"blue.400"} onClick={() => navigate("/signup")}>Forgot password?</Text>
+                  <Text color={"blue.400"} onClick={() => navigate("/signup")}>
+                    Forgot password?
+                  </Text>
                 </Stack>
                 <Input
                   type="submit"

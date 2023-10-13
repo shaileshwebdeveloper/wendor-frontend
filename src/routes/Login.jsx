@@ -59,8 +59,6 @@ export const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    formstate.mobile = "+91" + formstate.mobile;
-
     setUsers([...users, formstate]);
     setFormState(initState);
 
@@ -68,12 +66,13 @@ export const Login = () => {
 
     verifyOtp(formstate)
       .then((r) => {
-        if (r.status === 200) {
+        if (r.data.token) {
           alert(r.data.msg);
-          auth.handleLogin(r.data.token);
+          auth.handleLogin(r.data.token, r.data.name);
           navigate("/");
-        } else if (r.status === 204) {
-          alert("Otp Incorrect");
+        }
+        else{
+          alert(r.data.msg);
         }
       })
       .catch((error) => {

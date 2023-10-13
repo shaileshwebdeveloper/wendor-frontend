@@ -41,13 +41,13 @@ export const Signup = () => {
   };
 
   const handleSubmit = (e) => {
-    formstate.mobile = "+91" + formstate.mobile;
     e.preventDefault();
     setUsers([...users, formstate]);
     setFormState(initState);
     addUser(formstate)
       .then((r) => {
         console.log("Signup Data", r);
+        
         alert(r.data);
       })
       .catch((e) => console.log(e));

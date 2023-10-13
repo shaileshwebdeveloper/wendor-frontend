@@ -6,13 +6,15 @@ function AuthContextProvider({ children }) {
   const [state, setState] = useState({
     isAuth: false,
     token: null,
+    name : null,
   });
 
-  function handleLogin(token) {
+  function handleLogin(token,name) {
     setState({
       ...state,
       isAuth: true,
       token: token,
+      name :name
     });
   }
   function handleLogout() {
@@ -20,6 +22,7 @@ function AuthContextProvider({ children }) {
       ...state,
       isAuth: false,
       token: null,
+      name : null
     });
   }
 

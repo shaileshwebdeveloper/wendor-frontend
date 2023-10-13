@@ -30,7 +30,7 @@ export const Products = () => {
   return (
     <>
       <Box>
-        <AddProduct />
+      {state.isAuth ? <AddProduct /> : ""}
       </Box>
       <SimpleGrid columns={3} spacing={10} mt="20px" width={"80%"} m="auto">
         {data?.map((item) => (

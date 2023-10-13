@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { Box } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 
 const links = [
   {
@@ -35,6 +35,7 @@ export const Navbar = () => {
   const { state } = useContext(AuthContext);
 
   console.log(state.isAuth);
+  console.log(state.name)
 
   const links = [
     {
@@ -82,6 +83,13 @@ export const Navbar = () => {
           {item.title}
         </NavLink>
       ))}
+      {state.name ?
+      <>
+       <Image w="30px" h="30px" borderRadius="50%" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="user image"/>
+      <Text fontsize="xl" color={"yellow"} >HI {state.name?.toUpperCase()}</Text> 
+      </>
+        : "" 
+      }
     </Box>
   );
 };

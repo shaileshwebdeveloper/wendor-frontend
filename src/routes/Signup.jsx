@@ -46,9 +46,8 @@ export const Signup = () => {
     setFormState(initState);
     addUser(formstate)
       .then((r) => {
-        console.log("Signup Data", r);
-        
-        alert(r.data);
+        console.log("Signup Data", r.data);
+        alert(r.data.msg);
       })
       .catch((e) => console.log(e));
   };

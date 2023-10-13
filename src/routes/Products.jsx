@@ -67,7 +67,7 @@ export const Products = () => {
               fontSize="sm"
               padding={"2px"}
               color="#bba5e9"
-              bgColor={"#e9deff"}
+              bgColor={"#eb7371"}
               w="170px"
               p="1%"
             >

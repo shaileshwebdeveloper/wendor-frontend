@@ -64,7 +64,7 @@ export const Login = () => {
     setUsers([...users, formstate]);
     setFormState(initState);
 
-    console.log("formstate", formstate);
+    // console.log("formstate", formstate);
 
     verifyOtp(formstate)
       .then((r) => {

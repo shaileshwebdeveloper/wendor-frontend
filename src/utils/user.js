@@ -5,7 +5,7 @@ export const addUser = (payload) => {
 };
 
 export const sendOtp = (payload) => {
-  return axios.post("http://localhost:3001/send-otp", payload,{
+  return axios.post("https://wendor-dada.onrender.com/send-otp", payload,{
     headers: {
       Authorization: "SxyzrG8O1PKoAHD0zV1AmXORZyGldOVrBcPnBF7nqePdr8WfTGqSouvWqWgQ",
     }

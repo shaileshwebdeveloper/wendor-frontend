@@ -39,6 +39,8 @@ export const Login = () => {
 
   const navigate = useNavigate();
 
+    const blockInvalidChar = e => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
+
   const handleChange = (e) => {
     const { name: key, value } = e.target;
 
@@ -62,7 +64,7 @@ export const Login = () => {
     setUsers([...users, formstate]);
     setFormState(initState);
 
-    // console.log("formstate", formstate);
+    console.log("formstate", formstate);
 
     verifyOtp(formstate)
       .then((r) => {
@@ -106,6 +108,7 @@ export const Login = () => {
               <FormControl id="mobile" isRequired>
                 <FormLabel>CONTACT</FormLabel>
                 <Input
+                  onKeyDown={blockInvalidChar}
                   type="number"
                   required
                   placeholder="Enter Your Mobile Number"

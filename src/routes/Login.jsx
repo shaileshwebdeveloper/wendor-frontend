@@ -132,6 +132,7 @@ export const Login = () => {
               <FormControl id="password" isRequired>
                 <FormLabel>OTP</FormLabel>
                 <Input
+                  onKeyDown={blockInvalidChar}
                   type="number"
                   required
                   placeholder="Verify Your Otp"

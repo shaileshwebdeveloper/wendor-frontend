@@ -7,7 +7,7 @@ export const addUser = (payload) => {
 export const sendOtp = (payload) => {
   return axios.post("https://wendor-dada.onrender.com/send-otp", payload,{
     headers: {
-      Authorization: "SxyzrG8O1PKoAHD0zV1AmXORZyGldOVrBcPnBF7nqePdr8WfTGqSouvWqWgQ",
+      authorization: "SxyzrG8O1PKoAHD0zV1AmXORZyGldOVrBcPnBF7nqePdr8WfTGqSouvWqWgQ",
     }
 });
 };
